@@ -25,3 +25,15 @@
         }
     }
     ```
+### add new nested query type for a parent query
+ - In our example code, each user can have favorite movies list, and can be defined as a separate query in the resolvers which then interacts with the database to get the data. Eg:
+    ```
+    User: {
+            favoriteMovies: () => {
+            return _.filter(
+                MovieList,
+                (movie) => movie.yearReleased >= 2000 && movie.yearReleased <= 2010
+            );
+            },
+        },
+    ```

@@ -18,7 +18,15 @@ const resolvers = {
     movie: (parent, args) => {
       const name = args.name;
       const movie = _.find(MovieList, { name });
-      return movie
+      return movie;
+    },
+  },
+  User: {
+    favoriteMovies: () => {
+      return _.filter(
+        MovieList,
+        (movie) => movie.yearReleased >= 2000 && movie.yearReleased <= 2010
+      );
     },
   },
 };
