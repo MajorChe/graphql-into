@@ -1,0 +1,52 @@
+query GetAllusers {
+  users {
+    name
+    age
+    id
+    nationality
+    friends {
+      name
+    }
+  }
+}
+
+query GetUser($userId: ID!) {
+  user(id: $userId) {
+    name
+    favoriteMovies {
+      name
+      yearReleased
+    }
+  }
+}
+
+query GetAllMovies {
+  movies {
+    id
+    name
+    isInTheaters
+    yearReleased
+  }
+}
+
+query GetMovie($name: String!) {
+  movie(name: $name) {
+    name
+    yearReleased
+  }
+}
+
+# mutation for updating username for user
+mutation UpdateUsername($input: UpdateUsernameInput!) {
+  updateUsername(input: $input) {
+    id
+    username
+  }
+}
+# variables
+{
+  "input": {
+    "id": "3",
+    "newUsername": "Tinny"
+  }
+}
