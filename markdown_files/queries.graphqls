@@ -50,3 +50,16 @@ mutation UpdateUsername($input: UpdateUsernameInput!) {
     "newUsername": "Tinny"
   }
 }
+
+# mutation query for deleting a user
+mutation deleteUser($deleteUserId: ID!) {
+  deleteUser(id: $deleteUserId) {
+    id
+  }
+}
+
+#variables
+{
+  "deleteUserId": "5"
+}
+

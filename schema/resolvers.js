@@ -40,15 +40,20 @@ const resolvers = {
     updateUsername: (parent, args) => {
       const { id, newUsername } = args.input;
       let updatedUser;
-      console.log("new username",newUsername)
+      console.log("new username", newUsername);
       UserList.forEach((user) => {
-        if ((user.id === id)) {
+        if (user.id === id) {
           user.username = newUsername;
           updatedUser = user;
         }
       });
-      console.log("updated user",updatedUser)
+      console.log("updated user", updatedUser);
       return updatedUser;
+    },
+    deleteUser: (parent, args) => {
+      const id  = args.id;
+      _.remove(UserList, (user) => user.id === Number(id));
+      return null;
     },
   },
 };
